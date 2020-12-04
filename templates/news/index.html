@@ -3,40 +3,61 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
-
 <div class="px-4 py-5">
-  <h1>Technology</h1>
-  <div class="container-fluid">
-    <div class="masonry-wrapper">
-      {% for article in api.articles %}
-      <div class="col-lg-4 col-md-6 grid-item mb-4">
-        <div class="listing-item">
-          <div class="position-relative">
-            <ul class="list-inline listing-tags m-0">
-              <li class="list-inline-item">
-              Source: {{ article.source.name }}
-              </li>
-            </ul>
-            <a class="reset-anchor d-block listing-img-holder" href="detail.html">
-              <img class="img-fluid" src="{{ article.urlToImage }}" alt="{{ article.source.name }}">
-              <p class="mb-0 text-primary small d-flex align-items-center listing-btn">
-                <span>Look inside</span>
-                <svg class="svg-icon text-primary svg-icon-sm ml-2">
-                  <use xlink:href="#arrow-right-1"> </use>
-                </svg>
-              </p>
-            </a>
-          </div>
-          <div class="py-3"><a class="reset-anchor" href="detail.html">
-              <h2 class="h5 listing-item-heading">{{ article.title }}</h2>
-            </a>
-            <p class="text-small mb-0 listing-item-description">{{ article.description|truncatechars:100 }}</p>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
+
+  <h1 class="jumbotron"><i class="fas fa-code"></i> Coding</h1>
+  {%for code_article in code_news%}
+  <h3>{{ code_article }}</h3>
+  <h6>source: </h6>
+  <p>Article details...</p>
+  <p>
+    <a class="btn btn-outline-info btn-large" href="#">View Article »</a>
+  </p>
+  {% endfor %}
+  <br>
+  <h1 class="jumbotron"><i class="fas fa-gamepad"></i> Gaming</h1>
+  {% for game_article in game_news %}
+  <h3>{{ game_article }}</h3>
+  <h6>source: </h6>
+  <p>Article details...</p>
+  <p>
+    <a class="btn btn-outline-info btn-large" href="#">View Article »</a>
+  </p>
+  {% endfor %}
+
 </div>
+
+
 {% endblock %}
+
+
+<!-- Style 1 -->
+<!-- <div class="container-fluid">
+<div class="masonry-wrapper">
+<div class="col-lg-4 col-md-6 grid-item mb-4">
+<div class="listing-item">
+<div class="position-relative">
+<ul class="list-inline listing-tags m-0">
+<li class="list-inline-item">
+<h6>Source: </h6>
+</li>
+</ul>
+<a class="reset-anchor d-block listing-img-holder" href="detail.html">
+<img class="img-fluid" src="{% static 'img/portfolio-1.jpg' %}" alt="#">
+<p class="mb-0 text-primary small d-flex align-items-center listing-btn">
+<span>Look inside</span>
+<svg class="svg-icon text-primary svg-icon-sm ml-2">
+<use xlink:href="#arrow-right-1"> </use>
+</svg>
+</p>
+</a>
+</div>
+<div class="py-3"><a class="reset-anchor" href="detail.html">
+<h2 class="h5 listing-item-heading">Title</h2>
+</a>
+<p class="text-small mb-0 listing-item-description">description</p>
+</div>
+</div>
+</div>
+</div>
+</div> -->

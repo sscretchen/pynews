@@ -1,1 +1,8 @@
-/* your styles go here */
+/* For Bootstrap defaults */
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
+    background-color: #BED8FB;
+    border-radius: .3rem;
+}

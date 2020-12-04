@@ -46,22 +46,11 @@
             {% url 'about' as about %}
             <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == about %} active {% endif  %}" href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
           </li>
+          <li class="mb-2 pb-1">
+            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="mailto:projectpynews@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+          </li>
         </ul>
       </div>
-
-      <!-- Start Social Links  -->
-      <!-- <div class="px-4 py-3">
-          <ul class="list-inline list-social mb-3">
-            <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-dribbble"></i></a></li>
-            <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fas fa-envelope"></i></a></li>
-          </ul>
-        </div> -->
-      <!-- End Social Links -->
-
     </div>
   </div>
   <div class="page-holder">
@@ -89,19 +78,13 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <div class="row">
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                <h2 class="h4 text-white mb-4">Contact</h2>
-                <ul class="list-unstyled text-small mb-0 text-white">
-                  <li class="mb-1"><i class="fas fa-envelope text-muted mr-2 fa-fw"></i><a href="mailto:projectpynews@gmail.com">Email Me</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="col-lg-10 mb-4 mb-lg-0">
                 <h2 class="h4 text-white mb-4">Site Info</h2>
                 <ul class="list-inline">
                   <div class="row text-white text-small">
                     <div class="col-6">
                       <ul class="list-unstyled">
-                        <li><a class="reset-anchor" href="#"><i class="fas fa-code mr-2 mb-2 fa-fw fa-lg"></i> APIs</a></li>
+                        <li><a class="reset-anchor" href="#"><i class="far fa-file-code mr-2 mb-2 fa-fw fa-lg"></i> APIs</a></li>
                         <li><a class="reset-anchor" href="#"><i class="fas fa-poll-h mr-2 mb-2 fa-fw fa-lg"></i> Web Scraping</a></li>
                         <li><a class="reset-anchor" href="#"><i class="fas fa-question-circle mr-2 mb-2 fa-fw fa-lg"></i> FAQs</a></li>
                         <li><a class="reset-anchor" href="#"><i class="fas fa-user-secret mr-2 mb-2 fa-fw fa-lg"></i> Privacy Policy</a></li>
@@ -110,29 +93,7 @@
                   </div>
                 </ul>
               </div>
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                <h2 class="h4 text-white mb-4">Top Articles</h2>
-                <ul class="list-unstyled mb-0">
-                  <li><a class="reset-anchor" href="#">
-                      <div class="media"><img class="rounded-circle" src="{% static 'img/news-1.jpg' %}" alt="" width="50">
-                        <div class="ml-3 media-body">
-                          <p class="text-white mb-0">Design is all</p>
-                          <p class="small mb-1">10 Aug 2019</p>
-                          <p class="text-gray text-small">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
-                        </div>
-                      </div>
-                    </a></li>
-                  <li><a class="reset-anchor" href="#">
-                      <div class="media"><img class="rounded-circle" src="{% static 'img/news-2.jpg' %}" alt="" width="50">
-                        <div class="ml-3 media-body">
-                          <p class="text-white mb-0">Power is art</p>
-                          <p class="small mb-1">23 Dec 2019</p>
-                          <p class="text-gray text-small">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
-                        </div>
-                      </div>
-                    </a></li>
-                </ul>
-              </div>
+
             </div>
           </div>
         </div>

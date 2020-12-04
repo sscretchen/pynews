@@ -1,14 +1,34 @@
 from django.shortcuts import render
+from bs4 import BeautifulSoup
 import requests
 import json
 
 def index(request):
     """Main view of site"""
-    tech_api_request = requests.get("http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=e8c53fe0ff3d44da82a8efc233d8247d")
-    api = json.loads(tech_api_request.content)
+
+    # Pulling Coding news from https://developer-tech.com/
+    code_data = requests.get("https://developer-tech.com/news/2020/")
+    code_soup = BeautifulSoup(code_data.content, 'html.parser')
+    code_headings = code_soup.find_all("h3")
+    code_headings = code_headings[0:3]
+    code_news = []
+
+    for code_article in code_headings:
+        code_news.append(code_article.text)
+
+    # Pulling Gaming news from https://developer-tech.com/
+    game_data = requests.get("https://www.gamespot.com/games/")
+    game_soup = BeautifulSoup(game_data.content, 'html.parser')
+    game_headings = game_soup.find_all("h4")
+    game_headings = game_headings[1:4]
+    game_news = []
+
+    for game_article in game_headings:
+        game_news.append(game_article.text)
 
     context = {
-        'api': api,
+        'code_news': code_news,
+        'game_news': game_news,
     }
     return render(request, 'news/index.html', context)
 
@@ -19,5 +39,5 @@ def about(request):
 
 
 def post_detail(request):
-    """Single page view of each post"""
+    """Single page view of API posts NOT scraped data"""
     return render(request, 'news/post_detail.html')
