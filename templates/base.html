@@ -28,30 +28,7 @@
 
 <body>
   <div class="sidebar">
-    <div class="sidebar-inner d-flex flex-column">
-      <div class="px-4 py-5">
-        <a href="{% url 'index' %}"><img src="{% static 'img/logo.svg' %}" alt="site logo" width="90"></a>
-        <h4>PyNews</h4>
-        <p class="text-muted">Just Info. No Spin</p>
-      </div>
-      <br>
-      <div class="sidebar-menu-holder flex-grow-1">
-        <ul class="sidebar-menu list-unstyled">
-          <li class="mb-2 pb-1">
-            {% url 'index' as index %}
-            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == index %} active {% endif  %}" href="{% url 'index' %}"><i class="fas fa-home"></i> Home
-            </a>
-          </li>
-          <li class="mb-2 pb-1">
-            {% url 'about' as about %}
-            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == about %} active {% endif  %}" href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
-          </li>
-          <li class="mb-2 pb-1">
-            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="mailto:projectpynews@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    {% include 'sidebar.html' %}
   </div>
   <div class="page-holder">
     <div class="px-4 d-block d-lg-none">
@@ -84,10 +61,11 @@
                   <div class="row text-white text-small">
                     <div class="col-6">
                       <ul class="list-unstyled">
-                        <li><a class="reset-anchor" href="#"><i class="far fa-file-code mr-2 mb-2 fa-fw fa-lg"></i> APIs</a></li>
-                        <li><a class="reset-anchor" href="#"><i class="fas fa-poll-h mr-2 mb-2 fa-fw fa-lg"></i> Web Scraping</a></li>
-                        <li><a class="reset-anchor" href="#"><i class="fas fa-question-circle mr-2 mb-2 fa-fw fa-lg"></i> FAQs</a></li>
-                        <li><a class="reset-anchor" href="#"><i class="fas fa-user-secret mr-2 mb-2 fa-fw fa-lg"></i> Privacy Policy</a></li>
+                        <li><a class="reset-anchor" href="#"><i class="far fa-file-code mt-2 mr-2 mb-2 fa-fw fa-lg"></i> APIs</a></li>
+                        <li><a class="reset-anchor" href="#"><i class="fas fa-poll-h mt-2 mr-2 mb-2 fa-fw fa-lg"></i> Web Scraping</a></li>
+                        <li><a class="reset-anchor" href="#"><i class="fas fa-question-circle mt-2 mr-2 mb-2 fa-fw fa-lg"></i> FAQs</a></li>
+                        <li><a class="reset-anchor" href="#"><i class="fas fa-user-secret mt-2 mr-2 mb-2 fa-fw fa-lg"></i> Privacy Policy</a></li>
+                        <li><a class="reset-anchor" href="mailto:projectpynews@gmail.com"><i class="far fa-envelope mt-2 mr-2 mb-2 fa-fw fa-lg"></i> Email Me</a></li>
                       </ul>
                     </div>
                   </div>
