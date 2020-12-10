@@ -3,34 +3,47 @@
   <div class="px-4 py-5">
     <a href="{% url 'index' %}"><img src="{% static 'img/logo.svg' %}" alt="site logo" width="90"></a>
     <h4>PyNews</h4>
-    <p class="text-muted">Just Info. No Spin</p>
+    <p>Just Info. No Spin</p>
   </div>
   <br>
   <div class="sidebar-menu-holder flex-grow-1">
     <ul class="sidebar-menu list-unstyled">
       <li class="mb-2 pb-1">
-        {% url 'index' as index %}
-        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == index %} active {% endif  %}" href="{% url 'index' %}"><i class="fas fa-home mr-2 mb-2 fa-fw"></i> Home
-        </a>
-      </li>
-      <li class="mb-2 pb-1">
-        {% url 'about' as about %}
-        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == about %} active {% endif  %}" href="{% url 'about' %}"><i class="fas fa-info-circle mr-2 mb-2 fa-fw"></i> About</a>
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=top"><i class="far fa-newspaper mr-2 mb-2 fa-fw"></i> Top News</a>
       </li>
     </ul>
-    <br>
-    <ul class="sidebar-menu list-unstyled">
-      <h4 class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large">Topics</h4>
-      <li class="mb-2 pb-1">
-        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="#"><i class="fas fa-podcast mr-2 mb-2 fa-fw"></i> Podcasts</a>
-      </li>
-      <li class="mb-2 pb-1">
-        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="#"><i class="fas fa-gamepad mr-2 mb-2 fa-fw"></i> Gaming</a>
-      </li>
-      <li class="mb-2 pb-1">
-        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="#"><i class="fas fa-code mr-2 mb-2 fa-fw"></i> Coding</a>
-      </li>
 
+    <br>
+
+    <ul class="sidebar-menu list-unstyled">
+      <h4 class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large">Main Topics</h4>
+      <li class="mb-2 pb-1">
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=Gaming"><i class="fas fa-gamepad mr-2 mb-2 fa-fw"></i> Gaming</a>
+      </li>
+      <li class="mb-2 pb-1">
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=Coding"><i class="fas fa-code mr-2 mb-2 fa-fw"></i> Coding</a>
+      </li>
+      <li class="mb-2 pb-1">
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=Movies"><i class="fas fa-film mr-2 mb-2 fa-fw"></i> Movies</a>
+      </li>
+      <li class="mb-2 pb-1">
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=Technology"><i class="fas fa-server mr-2 mb-2 fa-fw"></i> Technology</a>
+      </li>
+      <li class="mb-2 pb-1">
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=Finances"><i class="fas fa-money-bill-wave mr-2 mb-2 fa-fw"></i> Finance</a>
+      </li>
+      <li class="mb-2 pb-1">
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=Podcasts"><i class="fas fa-podcast mr-2 mb-2 fa-fw"></i> Podcasts</a>
+      </li>
+    </ul>
+
+    <br>
+
+    <ul class="sidebar-menu list-unstyled">
+      <h4 class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large">Scraped Pages</h4>
+      <li class="mb-2 pb-1">
+        <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="#"><i class="fas fa-question mr-2 mb-2 fa-fw"></i> Coming soon...</a>
+      </li>
     </ul>
   </div>
 </div>
