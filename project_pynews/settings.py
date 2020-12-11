@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My Apps
     'news',
+    'members',
+    'stories',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +134,8 @@ STATICFILES_DIRS = [
 # Media Settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# User Auth settings
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "login"

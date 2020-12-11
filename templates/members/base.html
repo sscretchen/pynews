@@ -27,8 +27,27 @@
 </head>
 
 <body>
+  <!-- sidebar -->
   <div class="sidebar">
-    {% include 'sidebar.html' %}
+    <div class="sidebar-inner d-flex flex-column">
+      <div class="px-4 py-5">
+        <a href="{% url 'index' %}"><img src="{% static 'img/logo.svg' %}" alt="site logo" width="90"></a>
+        <h4>PyNews</h4>
+      </div>
+      <br>
+      <div class="sidebar-menu-holder flex-grow-1">
+        <ul class="sidebar-menu list-unstyled">
+          <li class="mb-2 pb-1">
+            {% url 'login' as login %}
+            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == login %} active {% endif %}" href="{% url 'login' %}"><i class="fas fa-sign-in-alt mr-2 mb-2 fa-fw"></i> Login</a>
+          </li>
+          <li class="mb-2 pb-1">
+            {% url 'signup' as signup %}
+            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == signup %} active {% endif %}" href="{% url 'signup' %}"><i class="fas fa-user-plus mr-2 mb-2 fa-fw"></i> Signup</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="page-holder">
     <div class="px-4 d-block d-lg-none">
@@ -40,7 +59,7 @@
               <use xlink:href="#menu-hamburger-1"> </use>
             </svg>
           </button>
-          <a class="navbar-brand" href="{% url 'index' %}">
+          <a class="navbar-brand" href="index.html">
             <img src="{% static 'img/logo.svg' %}" alt="site logo" width="60">
             <h6>PyNews</h6>
           </a>
@@ -50,57 +69,6 @@
     {% block content %}
 
     {% endblock %}
-    <footer class="text-muted" style="background: #0d0d0d">
-      <div class="container-fluid py-5">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <div class="row">
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                <h2 class="h4 text-white mb-4">Site Info</h2>
-                <div class="row text-white text-small">
-                  <ul class="list-unstyled">
-                    <li>
-                      <h5><a class="reset-anchor" href="{% url 'about' %}"><i class="fas fa-info-circle mt-2 mr-2 mb-2 fa-fw fa-lg"></i> About PyNews</a></h5>
-                    </li>
-                    <li>
-                      <h5><a class="reset-anchor" href="mailto:projectpynews@gmail.com"><i class="far fa-envelope mt-2 mr-2 mb-2 fa-fw fa-lg"></i> Email Me</a></h5>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                <h2 class="h4 text-white mb-4">Member Hub</h2>
-                <div class="row text-white text-small">
-                  <ul class="list-unstyled">
-                    <li>
-                      <h5><a class="reset-anchor" href="{% url 'about' %}"><i class="fas fa-vote-yea mt-2 mr-2 mb-2 fa-fw fa-lg"></i> Vote</a></h5>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-dark py-4">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-10 mx-auto">
-              <div class="row text-white">
-                <div class="col-md-6 text-center text-md-left">
-                  <p class="text-small mb-3 mb-md-0">PyNews by <a href="https://scretch.pythonanywhere.com/">Sean Scretchen</a></p>
-                </div>
-                <div class="col-md-6 text-center text-md-right">
-                  <p class="text-small mb-3 mb-md-0">Version 1.0</p>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
   </div>
   <!-- JavaScript files-->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>

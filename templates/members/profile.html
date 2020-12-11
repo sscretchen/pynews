@@ -1,22 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'members/base.html' %}
 {% load static %}
-{% block title %}Post Detail{% endblock %}
+{% block title %}Profile of {{ user.username }}{% endblock %}
 
 {% block content %}
 <div class="px-4 py-5">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-7">
-        <h1><a href="{% url 'index' %}"><i class="far fa-hand-point-left"></i></a> Headline</h1>
-        <h6 class="text-muted mb-5">Source: </h6>
+        <h1>Tour de France</h1>
+        <p class="text-muted mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
     </div>
     <div class="row mb-5">
-      <div class="col-lg-7"><a href="img/portfolio-3.jpg" data-lightbox="image-1" data-title="Tour de France"><img class="img-fluid mb-4" src="img/portfolio-3.jpg" alt=""></a><a href="img/portfolio-1.jpg" data-lightbox="image-1"
-          data-title="Tour de France"><img class="img-fluid mb-4" src="img/portfolio-1.jpg" alt=""></a></div>
+      <div class="col-lg-7"><a href="img/portfolio-3.jpg" data-lightbox="image-1" data-title="Tour de France"><img class="img-fluid mb-4" src="img/portfolio-3.jpg" alt=""></a><a href="img/portfolio-1.jpg" data-lightbox="image-1" data-title="Tour de France"><img class="img-fluid mb-4" src="img/portfolio-1.jpg" alt=""></a></div>
       <div class="col-lg-5 position-sticky">
-        <h2>Author?</h2>
-        <p class="text-muted">The story. Truncate chars for a summary view and add link to drive traffic to the authors platform</p>
+        <h2>Idea</h2>
+        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <div class="p-4 bg-light mb-5">
           <ul class="list-unstyled mb-0">
             <li class="d-flex mb-2">
@@ -41,7 +40,7 @@
         </ul>
       </div>
     </div>
-    <h2 class="h3 mb-4">Related Posts</h2>
+    <h2 class="h3 mb-4">Related projects</h2>
     <div class="row">
       <div class="col-lg-4 mb-4">
         <div class="listing-item pl-0">
@@ -50,11 +49,9 @@
                 <svg class="svg-icon text-primary svg-icon-sm ml-2">
                   <use xlink:href="#arrow-right-1"> </use>
                 </svg>
-              </p>
-            </a></div>
+              </p></a></div>
           <div class="py-3"><a class="reset-anchor" href="detail.html">
-              <h2 class="h5 listing-item-heading">Banana Lady</h2>
-            </a>
+              <h2 class="h5 listing-item-heading">Banana Lady</h2></a>
             <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
         </div>
@@ -66,11 +63,9 @@
                 <svg class="svg-icon text-primary svg-icon-sm ml-2">
                   <use xlink:href="#arrow-right-1"> </use>
                 </svg>
-              </p>
-            </a></div>
+              </p></a></div>
           <div class="py-3"><a class="reset-anchor" href="detail.html">
-              <h2 class="h5 listing-item-heading">Treasure Haunted</h2>
-            </a>
+              <h2 class="h5 listing-item-heading">Treasure Haunted</h2></a>
             <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
           </div>
         </div>
@@ -82,11 +77,9 @@
                 <svg class="svg-icon text-primary svg-icon-sm ml-2">
                   <use xlink:href="#arrow-right-1"> </use>
                 </svg>
-              </p>
-            </a></div>
+              </p></a></div>
           <div class="py-3"><a class="reset-anchor" href="detail.html">
-              <h2 class="h5 listing-item-heading">Best Friends</h2>
-            </a>
+              <h2 class="h5 listing-item-heading">Best Friends</h2></a>
             <p class="text-small mb-0 listing-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
         </div>

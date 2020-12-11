@@ -1,0 +1,20 @@
+{% extends 'members/base.html' %}
+{% load static %}
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5">
+  <div class="container-fluid">
+    <br><br><br><br><br><br>
+    <h2 class="text-center">Signup for an Account</h2>
+    <form class="text-center" method="post" action=".">
+      {% csrf_token %}
+        {{ form.as_p }}
+      <button class="btn btn-success btn-lg my-4" type="submit">Signup</button>
+      <h6>Already a member?
+        <a href="{% url 'login' %}">Login</a>
+      </h6>
+    </form>
+  </div>
+</div>
+{% endblock %}

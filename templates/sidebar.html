@@ -3,7 +3,13 @@
   <div class="px-4 py-5">
     <a href="{% url 'index' %}"><img src="{% static 'img/logo.svg' %}" alt="site logo" width="90"></a>
     <h4>PyNews</h4>
-    <p>Just Info. No Spin</p>
+    {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}</p>
+    <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
+    {% else %}
+    <p>Goodbye, Come back soon!</p>
+    <a href="{% url 'login' %}"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a>
+    {% endif %}
   </div>
   <br>
   <div class="sidebar-menu-holder flex-grow-1">
@@ -16,7 +22,7 @@
     <br>
 
     <ul class="sidebar-menu list-unstyled">
-      <h4 class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large">Main Topics</h4>
+      <h4 class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large">Main Topics | API Feed</h4>
       <li class="mb-2 pb-1">
         <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large" href="{% url 'index' %}?search=Gaming"><i class="fas fa-gamepad mr-2 mb-2 fa-fw"></i> Gaming</a>
       </li>
