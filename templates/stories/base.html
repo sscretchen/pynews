@@ -31,19 +31,23 @@
   <div class="sidebar">
     <div class="sidebar-inner d-flex flex-column">
       <div class="px-4 py-5">
-        <img src="{% static 'img/logo.svg' %}" alt="site logo" width="90">
+        <a href="{% url 'frontpage' %}"><img src="{% static 'img/logo.svg' %}" alt="site logo" width="90"></a>
         <h4>PyNews</h4>
+        {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}</p>
+        <p><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a></p>
+        <p><a href="{% url 'submit_story' %}"><i class="fas fa-plus fa-lg"></i> Submit Story</a></p>
+        {% else %}
+        <p>Goodbye, Come back soon!</p>
+        <p><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a></p>
+        {% endif %}
       </div>
       <br>
       <div class="sidebar-menu-holder flex-grow-1">
         <ul class="sidebar-menu list-unstyled">
           <li class="mb-2 pb-1">
-            {% url 'login' as login %}
-            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == login %} active {% endif %}" href="{% url 'login' %}"><i class="fas fa-sign-in-alt mr-2 mb-2 fa-fw"></i> Login</a>
-          </li>
-          <li class="mb-2 pb-1">
-            {% url 'signup' as signup %}
-            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == signup %} active {% endif %}" href="{% url 'signup' %}"><i class="fas fa-user-plus mr-2 mb-2 fa-fw"></i> Signup</a>
+            {% url 'frontpage' as frontpage %}
+            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == frontpage %} active {% endif %}" href="{% url 'frontpage' %}"><i class="fas fa-newspaper mr-2 mb-2 fa-fw"></i> Frontpage</a>
           </li>
         </ul>
       </div>
@@ -59,12 +63,10 @@
               <use xlink:href="#menu-hamburger-1"> </use>
             </svg>
           </button>
-          <div class="navbar-brand">
-
+          <a class="navbar-brand" href="{% url 'frontpage' %}">
             <img src="{% static 'img/logo.svg' %}" alt="site logo" width="60">
             <h6>PyNews</h6>
-          </div>
-
+          </a>
         </nav>
       </header>
     </div>

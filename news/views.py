@@ -31,10 +31,10 @@ def index(request):
     for i in data:
         context["data"].append({
             "title": i["title"],
-            "description":  "" if i["description"] is None else i["description"],
+            "description": i["description"],
             "url": i["url"],
             "source": i["source"],
-            "image": temp_img if i["urlToImage"] is None else i["urlToImage"],
+            "image": i["urlToImage"],
             "publishedat": i["publishedAt"]
         })
 

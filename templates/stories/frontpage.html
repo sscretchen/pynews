@@ -1,0 +1,45 @@
+{% extends 'stories/base.html' %}
+{% load static %}
+{% block title %}Trending Stories{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5">
+  <div class="jumbotron">
+    <h1>Members Hub</h1>
+    <h5>Submit stories, Discuss, research, learn and repeat</h5>
+  </div>
+  <br>
+  <div class="p-2 mb-2 bg-light">
+    <div class="container-fluid">
+      <h4>Top Stories</h4>
+    </div>
+  </div>
+  <br>
+  <div class="contianer-fluid">
+    <table class="table table-hover">
+      <tbody>
+        {% for story in stories %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>
+            <a href="{{ story.url }}" target="_blank">{{ story.title }}</a>
+            {% if story.vote_count == 1 %}
+            <p>{{ story.vote_count }} vote by {{ story.author }} {{ story.published_date|timesince}} ago</p>
+            {% else %}
+            <p>{{ story.vote_count }} votes by {{ story.author }} {{ story.published_date|timesince}} ago</p>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    <div class="p-2 mb-2 bg-light">
+      <div class="container-fluid">
+        <h4>Recent Stories</h4>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+{% endblock %}

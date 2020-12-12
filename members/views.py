@@ -21,5 +21,4 @@ def signup(request):
     context = {
         'form': form,
     }
-
     return render(request, 'members/signup.html', context)

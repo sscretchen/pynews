@@ -1,0 +1,17 @@
+{% extends 'stories/base.html' %}
+{% load static %}
+{% block title %}Submit a Story{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5">
+  <div class="container-fluid">
+    <br><br><br><br><br><br>
+    <h2 class="text-center">New Submission</h2>
+    <form class="text-center p-5" method="post" action=".">
+      {% csrf_token %}
+        {{ form }}
+      <button class="btn btn-success btn-lg my-4" type="submit">Post Story</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
