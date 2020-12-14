@@ -6,28 +6,53 @@
 <div class="px-4 py-5">
   <div class="jumbotron">
     <h1>Members Hub</h1>
-    <h5>Submit stories, Discuss, research, learn and repeat</h5>
+    <h5>Submit Stories, Discuss, Research, Vote, Learn and Repeat</h5>
   </div>
+
   <br>
   <div class="p-2 mb-2 bg-light">
     <div class="container-fluid">
-      <h4>Top Stories</h4>
+      <h4>Most Popular</h4>
     </div>
   </div>
   <br>
   <div class="contianer-fluid">
-    <table class="table table-hover">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Post Content</th>
+          <th scope="col">Author</th>
+        </tr>
+      </thead>
       <tbody>
         {% for story in stories %}
         <tr>
           <td>{{ forloop.counter }}</td>
           <td>
-            <a href="{{ story.url }}" target="_blank">{{ story.title }}</a>
             {% if story.vote_count == 1 %}
-            <p>{{ story.vote_count }} vote by {{ story.author }} {{ story.published_date|timesince}} ago</p>
+            <p>{{ story.vote_count }} vote since {{ story.published_date}}</p>
             {% else %}
-            <p>{{ story.vote_count }} votes by {{ story.author }} {{ story.published_date|timesince}} ago</p>
+            <p>{{ story.vote_count }} votes since {{ story.published_date}}</p>
             {% endif %}
+          </td>
+          <td>
+            <a href="{{ story.url }}" target="_blank">{{ story.title }}</a>
+            <br>
+            {% if not story.author == request.user %}
+            <div class="mt-2">
+              <a href="{% url 'story_detail' story.id %}"><i class="fas fa-comments"></i> Discuss</a> //
+              <a href="{% url 'vote' story.id %}"><i class="fas fa-thumbs-up"></i> Vote on Story</a>
+            </div>
+            {% else %}
+            <div class="mt-2">
+              <a href="{% url 'story_detail' story.id %}"><i class="fas fa-eye"></i> View </a>
+            </div>
+            {% endif %}
+          </td>
+          <td>
+            {{ story.author }}
           </td>
         </tr>
         {% endfor %}
@@ -40,6 +65,30 @@
       </div>
     </div>
     <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Post Date</th>
+          <th scope="col">Post Content</th>
+          <th scope="col">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for story in new_stories %}
+        <tr>
+          <td>
+            {{ story.published_date|timesince }} ago
+          </td>
+          <td>
+            <a href="{% url 'story_detail' story.id %}">{{ story.title }}</a>
+          </td>
+          <td>
+            {{ story.author }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 </div>
 {% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'stories/base.html' %}
+{% load static %}
+{% block title %}Story Details{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5">
+  <div class="jumbotron">
+    <h1>{{ story.title }}</h1>
+    <h6>By <strong><a href="{% url 'user_profile' story.author.username %}">{{ story.author }}</a></strong> // <small>{{ story.published_date|timesince }} ago</small></h6>
+    {% if story.vote_count == 1 %}
+    <p>{{ story.vote_count }} vote</p>
+    {% else %}
+    <p>{{ story.vote_count }} votes</p>
+    {% endif %}
+    <a href="{{ story.url }}" target="_blank"><h5>View Story</h5></a>
+  </div>
+  <br>
+
+  {% if not story.author == request.user %}
+  <div class="text-center">
+    <div class="container-fluid">
+      <h6>
+        <a href="{% url 'vote' story.id %}?next_page=story_detail"><i class="fas fa-thumbs-up"></i> Vote on Story</a>
+      </h6>
+    </div>
+  </div>
+  {% endif %}
+  <br>
+  <div class="p-2 mb-2 bg-light">
+    <div class="container-fluid">
+      <h4>Comments</h4>
+    </div>
+  </div>
+  <br>
+  <div class="contianer-fluid">
+    {% for comment in story.comments.all %}
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>By: {{ comment.author.username }}</strong> // <small>{{ comment.published_date|timesince }} ago</small>
+          </p>
+          <p>{{ comment.body }}</p>
+        </div>
+      </div>
+    </article>
+    {% empty %}
+    <h6>No Comments Yet. Get the Convo started</h6>
+    {% endfor %}
+    <hr>
+    <div>
+      <h6>Add comment</h6>
+      {% if request.user.is_authenticated %}
+      <form method="post" action=".">
+        {% csrf_token %}
+          {{ form.as_p }}
+        <button class="btn btn-success" type="submit">Comment</button>
+      </form>
+      {% else %}
+      <p><a href="{% url 'login' %}">Please login to join the conversation</a></p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'stories/base.html' %}
+{% load static %}
+{% block title %}Search results{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-7">
+        <h1>Search results for {{ query }}</h1>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-5 position-sticky">
+        {% for story in stories %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Post Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                {{ story.title }}
+                <br><br>
+                <a href="{% url 'story_detail' story.id %}"><i class="fas fa-eye"></i> View Submission</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -49,6 +49,23 @@
             {% url 'frontpage' as frontpage %}
             <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == frontpage %} active {% endif %}" href="{% url 'frontpage' %}"><i class="fas fa-newspaper mr-2 mb-2 fa-fw"></i> Frontpage</a>
           </li>
+          <li class="mb-2 pb-1">
+            {% url 'index' as index %}
+            <a class="sidebar-link h6 text-uppercase letter-spacing-2 font-weight-bold text-large {% if request.path == index %} active {% endif %}" href="{% url 'index' %}"><i class="fas fa-home mr-2 mb-2 fa-fw"></i> Main Site</a>
+          </li>
+        </ul>
+      </div>
+      <div class="px-4 py-3">
+        <ul class="list-inline list-social mb-3">
+          <li class="list-inline-item">
+            <form action="{% url 'search' %}" method="get">
+              <div class="form-group mb-2">
+                <input type="text" class="form-control" placeholder="Search" name='query'>
+              </div>
+              <button type="submit" class="btn btn-info mb-2">Submit</button>
+            </form>
+          </li>
+
         </ul>
       </div>
     </div>
