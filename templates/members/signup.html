@@ -7,10 +7,11 @@
   <div class="container-fluid">
     <br><br><br><br><br><br>
     <h2 class="text-center">Signup for an Account</h2>
-    <form class="text-center" method="post" action=".">
+    <form class="text-center p-5" method="post" action=".">
       {% csrf_token %}
         {{ form.as_p }}
       <button class="btn btn-success btn-lg my-4" type="submit">Signup</button>
+      <hr>
       <h6>Already a member?
         <a href="{% url 'login' %}">Login</a>
       </h6>
