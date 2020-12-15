@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '-r%5nhx8p1b4b8zjq8=u9(hn%+1%f-e39e+dq*!nqsply5upa#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -126,7 +126,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # Live Path
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# Local Path
+
+# Local Path in local_settings
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'local_static'),
 ]
@@ -139,3 +140,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "login"
+
+# Local settings
+try:
+    from .local_settings import *
+except ImportError:
+    print("No Local file found. You must be in live production")
